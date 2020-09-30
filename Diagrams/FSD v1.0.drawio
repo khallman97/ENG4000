@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-30T15:48:37.461Z" agent="5.0 (Macintosh)" etag="nCxcEO75ErSPYIXKb3en" version="13.7.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-09-30T15:50:09.463Z" agent="5.0 (Macintosh)" etag="8NVlEI_PWxOF8fP8bN2H" version="13.7.6" type="github">
   <diagram id="ME-UoCXOoVdlkanik7TO" name="Page-1">
     <mxGraphModel dx="1426" dy="923" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -201,14 +201,14 @@
         </mxCell>
         <mxCell id="GSqG7k4U5jTujWrdJpg2-29" value="&lt;div&gt;Controlled&lt;br&gt;&lt;/div&gt;&lt;div&gt;High Voltage&lt;/div&gt;&lt;div&gt;Power&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="GSqG7k4U5jTujWrdJpg2-28" vertex="1" connectable="0">
           <mxGeometry x="-0.2659" relative="1" as="geometry">
-            <mxPoint y="13.57" as="offset" />
+            <mxPoint y="6.57" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="GSqG7k4U5jTujWrdJpg2-23" value="Motor Controller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="430" y="395" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="GSqG7k4U5jTujWrdJpg2-27" value="Motor(s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-          <mxGeometry x="430" y="540" width="120" height="60" as="geometry" />
+          <mxGeometry x="430" y="530" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="GSqG7k4U5jTujWrdJpg2-33" value="&lt;div&gt;Existing&lt;br&gt;&lt;/div&gt;&lt;div&gt;Human Interface&lt;/div&gt;&lt;div&gt;-Pedals&lt;/div&gt;&lt;div&gt;-Power Control&lt;/div&gt;&lt;div&gt;-Information Display&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="970" y="100" width="120" height="90" as="geometry" />
