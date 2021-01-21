@@ -1,4 +1,4 @@
-//Decale constants  
+//Declare constants  
 
 void setup() {
   // put your setup code here, to run once:
@@ -7,7 +7,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  readCan();
+  //readCan(); update this later once we are able to test
 
   
 }
@@ -22,5 +22,17 @@ void readCan() {
 void setSOH() {
   
 } 
-///...
+
+void setSOC() {
+  
+} 
+
+void setAlarm() {
+  
+} 
+
+void setChargeLED() {
+  
+} 
+
 
