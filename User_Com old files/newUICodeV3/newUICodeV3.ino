@@ -122,8 +122,7 @@
   // start the CAN bus at 500 kbps
   if (!CAN.begin(250E3)) {
   Serial.println("Starting CAN failed!");
-  while (1);
-  }
+ 
   
   CAN.endPacket();
  }  
@@ -147,8 +146,8 @@
  void readAndParseCAN() {
   byte id;
   // try to parse packet
-  CAN.beginExtendedPacket(0x1831f4e8);
-  CAN.endPacket();
+  //CAN.beginExtendedPacket(0x1831f4e8);
+  //CAN.endPacket();
  // CAN.beginExtendedPacket(0x1831f4e8);
  
   //delay(500);
@@ -170,12 +169,13 @@
     // Remote transmission request, packet contains no data
       Serial.print("RTR ");
       }
+      Serial.print(CAN.packetId(), HEX);
      // id = CAN.packetId(); //Store Id as hex
       if((CAN.packetId(), HEX) == 0x1834cce8){
          Serial.print("SOC and SOH");
-      } else if((CAN.packetId(), HEX) == 0x183fcce8) {
+      } else if((CAN.packetId(), HEX) == 0x1857e8f4) {
          Serial.print("DO3");
-      } else if((CAN.packetId(), HEX) == 0x183dcce8) {
+      } else if((CAN.packetId(), HEX) == 0x1835f4e8) {
         Serial.print("Alarms");
       }
 //       Serial.print("packet with id 0x");

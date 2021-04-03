@@ -1,3 +1,7 @@
+
+#include <CAN.h>
+
+
 #define LEDR 25 // RED pin of rgb led is connected to 25 gpio pin  
  #define LEDG 26 // green pin is connected to 26 gpio  
  #define LEDB 27 // left first
@@ -108,11 +112,24 @@
   ledcSetup(R_channel5, pwm_Frequency, pwm_resolution);  
   ledcSetup(G_channel5, pwm_Frequency, pwm_resolution);  
   ledcSetup(B_channel5, pwm_Frequency, pwm_resolution);     
+
+
+  //Set up CAN
+  Serial.begin(9600);
+  //while (!Serial);
+  CAN.setPins(4, 5);
+  Serial.println("CAN Receiver");
+  // start the CAN bus at 500 kbps
+  if (!CAN.begin(250E3)) {
+  Serial.println("Starting CAN failed!");
+  while (1);
+  }
+  
+  CAN.endPacket();
  }  
  void loop() {  
-  digitalWrite(red, HIGH);
-  digitalWrite(blue, HIGH);
-  digitalWrite(yellow, HIGH);
+  readAndParseCAN();
+  
   if(digitalRead(buttonPin)){
       if(switcher == 1){
          switcher = 0;
@@ -125,6 +142,60 @@
  
   printCharge();
   
+ }
+
+ void readAndParseCAN() {
+  byte id;
+  // try to parse packet
+  CAN.beginExtendedPacket(0x1831f4e8);
+  CAN.endPacket();
+ // CAN.beginExtendedPacket(0x1831f4e8);
+ 
+  //delay(500);
+  int packetSize = CAN.parsePacket();
+  
+  //CAN.sendMsgBuf(msg ID, extended?, #of data bytes, data array);
+  
+  if (packetSize) {
+  // received a packet
+  Serial.print("Received ");
+  
+  
+   if (CAN.packetExtended()) {
+    Serial.print("extended ");
+    }
+    
+    
+     if (CAN.packetRtr()) {
+    // Remote transmission request, packet contains no data
+      Serial.print("RTR ");
+      }
+     // id = CAN.packetId(); //Store Id as hex
+      if((CAN.packetId(), HEX) == 0x1834cce8){
+         Serial.print("SOC and SOH");
+      } else if((CAN.packetId(), HEX) == 0x183fcce8) {
+         Serial.print("DO3");
+      } else if((CAN.packetId(), HEX) == 0x183dcce8) {
+        Serial.print("Alarms");
+      }
+//       Serial.print("packet with id 0x");
+//      Serial.print(CAN.packetId(), HEX);
+//      //Serial.println(" id as int " + (int)CAN.packetId());
+//      if (CAN.packetRtr()) {
+//        Serial.print(" and requested length ");
+//        Serial.println(CAN.packetDlc());
+//      } else {
+//       Serial.print(" and length ");
+//        Serial.println(packetSize);
+//      
+//      
+//       // only print packet data for non-RTR packets
+//      while (CAN.available()) {
+//        Serial.print(CAN.read()); //parsed with (byte) before
+//      }
+    Serial.println();
+   CAN.endPacket();
+  }
  }
 
   void buttonPress(){
