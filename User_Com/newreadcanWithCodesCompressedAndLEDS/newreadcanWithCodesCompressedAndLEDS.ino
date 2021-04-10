@@ -11,17 +11,17 @@ CAN_device_t CAN_cfg;
 #define LEDG1 17 // green pin is connected to 26 gpio  
 #define LEDB1 2 // left 2 second
 
-#define LEDR3 18 // RED pin of rgb led is connected to 25 gpio pin  
-#define LEDG3 19 // green pin is connected to 26 gpio  
-#define LEDB3 21 // thrid led 
-
-#define LEDR4 12 // RED pin of rgb led is connected to 25 gpio pin  
-#define LEDG4 13 // green pin is connected to 26 gpio  
-#define LEDB4 14 // 4 led
-
-#define LEDR5 15 // RED pin of rgb led is connected to 25 gpio pin  
-#define LEDG5 22 // green pin is connected to 26 gpio  
-#define LEDB5 23 // extra alarm led
+//#define LEDR3 18 // RED pin of rgb led is connected to 25 gpio pin  
+//#define LEDG3 19 // green pin is connected to 26 gpio  
+//#define LEDB3 21 // thrid led 
+//
+//#define LEDR4 12 // RED pin of rgb led is connected to 25 gpio pin  
+//#define LEDG4 13 // green pin is connected to 26 gpio  
+//#define LEDB4 14 // 4 led
+//
+//#define LEDR5 15 // RED pin of rgb led is connected to 25 gpio pin  
+//#define LEDG5 22 // green pin is connected to 26 gpio  
+//#define LEDB5 23 // extra alarm led
 //RGB LEFT 1
 #define R_channel 0
 #define G_channel 1
@@ -582,10 +582,10 @@ void printAlarm() {
 }
 
 void initLEDS() {
-  pinMode(red, OUTPUT);
-  pinMode(blue, OUTPUT);
-  pinMode(yellow, OUTPUT);
-  pinMode(buttonPin, INPUT);
+//  pinMode(red, OUTPUT);
+//  pinMode(blue, OUTPUT);
+//  pinMode(yellow, OUTPUT);
+//  pinMode(buttonPin, INPUT);
   //  digitalWrite(red, HIGH);
   //  digitalWrite(blue, HIGH);
   //  digitalWrite(yellow, HIGH);
@@ -604,38 +604,38 @@ void initLEDS() {
   ledcSetup(R_channel1, pwm_Frequency, pwm_resolution);
   ledcSetup(G_channel1, pwm_Frequency, pwm_resolution);
   ledcSetup(B_channel1, pwm_Frequency, pwm_resolution);
-  //RGB 3
-  ledcAttachPin(LEDR3, R_channel3);
-  ledcAttachPin(LEDG3, G_channel3);
-  ledcAttachPin(LEDB3, B_channel3);
-  ledcSetup(R_channel3, pwm_Frequency, pwm_resolution);
-  ledcSetup(G_channel3, pwm_Frequency, pwm_resolution);
-  ledcSetup(B_channel3, pwm_Frequency, pwm_resolution);
-  //RGB 4
-  ledcAttachPin(LEDR4, R_channel4);
-  ledcAttachPin(LEDG4, G_channel4);
-  ledcAttachPin(LEDB4, B_channel4);
-  ledcSetup(R_channel4, pwm_Frequency, pwm_resolution);
-  ledcSetup(G_channel4, pwm_Frequency, pwm_resolution);
-  ledcSetup(B_channel4, pwm_Frequency, pwm_resolution);
-  //RGB Alarm
-  ledcAttachPin(LEDR5, R_channel5);
-  ledcAttachPin(LEDG5, G_channel5);
-  ledcAttachPin(LEDB5, B_channel5);
-  ledcSetup(R_channel5, pwm_Frequency, pwm_resolution);
-  ledcSetup(G_channel5, pwm_Frequency, pwm_resolution);
-  ledcSetup(B_channel5, pwm_Frequency, pwm_resolution);
+//  //RGB 3
+//  ledcAttachPin(LEDR3, R_channel3);
+//  ledcAttachPin(LEDG3, G_channel3);
+//  ledcAttachPin(LEDB3, B_channel3);
+//  ledcSetup(R_channel3, pwm_Frequency, pwm_resolution);
+//  ledcSetup(G_channel3, pwm_Frequency, pwm_resolution);
+//  ledcSetup(B_channel3, pwm_Frequency, pwm_resolution);
+//  //RGB 4
+//  ledcAttachPin(LEDR4, R_channel4);
+//  ledcAttachPin(LEDG4, G_channel4);
+//  ledcAttachPin(LEDB4, B_channel4);
+//  ledcSetup(R_channel4, pwm_Frequency, pwm_resolution);
+//  ledcSetup(G_channel4, pwm_Frequency, pwm_resolution);
+//  ledcSetup(B_channel4, pwm_Frequency, pwm_resolution);
+//  //RGB Alarm
+//  ledcAttachPin(LEDR5, R_channel5);
+//  ledcAttachPin(LEDG5, G_channel5);
+//  ledcAttachPin(LEDB5, B_channel5);
+//  ledcSetup(R_channel5, pwm_Frequency, pwm_resolution);
+//  ledcSetup(G_channel5, pwm_Frequency, pwm_resolution);
+//  ledcSetup(B_channel5, pwm_Frequency, pwm_resolution);
 }
 
 
 
-void RGB_Right2(int i, int j, int k) //left 1
+void AlarmLED(int i, int j, int k) //left 1
 {
   ledcWrite(R_channel, i);
   ledcWrite(G_channel, j);
   ledcWrite(B_channel, k);
 }
-void RGB_Right1(int i, int j, int k)  //left 2
+void Charging(int i, int j, int k)  //left 2
 {
   ledcWrite(R_channel1, i);
   ledcWrite(G_channel1, j);
@@ -647,18 +647,18 @@ void RGB_Right1(int i, int j, int k)  //left 2
 //  ledcWrite(G_channel2, j);
 //  ledcWrite(B_channel2, k);
 // }
-void RGB_Left2(int l, int m, int n)  //middle 2
-{
-  ledcWrite(R_channel3, l);
-  ledcWrite(G_channel3, m);
-  ledcWrite(B_channel3, n);
-}
-void RGB_Left1(int i, int j, int k)  //right 1
-{
-  ledcWrite(R_channel4, i);
-  ledcWrite(G_channel4, j);
-  ledcWrite(B_channel4, k);
-}
+//void RGB_Left2(int l, int m, int n)  //middle 2
+//{
+//  ledcWrite(R_channel3, l);
+//  ledcWrite(G_channel3, m);
+//  ledcWrite(B_channel3, n);
+//}
+//void RGB_Left1(int i, int j, int k)  //right 1
+//{
+//  ledcWrite(R_channel4, i);
+//  ledcWrite(G_channel4, j);
+//  ledcWrite(B_channel4, k);
+//}
 
 void RGB_Right3(int i, int j, int k)  //right 1
 {
